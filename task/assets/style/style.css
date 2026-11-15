@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+ul {
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+a:hover {
+    background-color: blueviolet;
+    padding: 5px;
+    border-radius: 2px;
+    transition: 0.5s ease-in-out;
+    color: antiquewhite;
+
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+span,p{
+    color: rgb(61, 60, 59);
+}
+h2{
+    color: antiquewhite;
+    text-shadow: 0px 0px 20px blueviolet;
+}
+
+@media (min-width: 269px) {
+    .head nav {
+        width: 90%;
+
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0px auto;
+        padding: 10px;
+        align-items: center;
+
+
+    }
+
+    .myList {
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+    }
+
+    .content {
+        width: 90%;
+        /* background-color: aqua; */
+        margin: 0 auto;
+    }
+
+    .part1 {
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .left-section span {
+        font-size: 10px;
+        font-weight: 600;
+        color: antiquewhite;
+        letter-spacing: 1px;
+    }
+
+    .left-section h2 {
+        font-size: 30px;
+        font-weight: 600;
+        color: antiquewhite;
+        letter-spacing: 1px;
+        margin: 10px 10px;
+    }
+
+    .left-section p {
+        font-size: 20px;
+        font-weight: 600;
+        color: rgb(234, 224, 219);
+        letter-spacing: 1px;
+
+    }
+
+    img {
+        width: 300px;
+    }
+
+    .part2 {
+        width: 100%;
+        height: 100vh;
+        /* background-color: aqua; */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+
+    }
+
+    .part2 .card {
+        width: 200px;
+        padding: 16px;
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.384);
+        box-shadow: 0 4px 30px rgba(137, 43, 226, 0.705);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+
+
+
+    }
+
+    .part2 .image {
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card .btn button{
+        border: none;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    .btnm a{
+        color: black;
+    }
+    .btnm a:hover{
+        color: antiquewhite;
+    }
+
+
+
+
+
+}
+
+@media (min-width: 1028px) {
+    a {
+        font-size: larger;
+    }
+
+    .head nav {
+        width: 80%;
+    }
+
+    .myList {
+        width: 60%;
+    }
+
+    .btns button {
+        font-size: medium;
+
+    }
+
+    .left-section span {
+        font-size: 10px;
+        font-weight: 600;
+        color: antiquewhite;
+        letter-spacing: 1px;
+    }
+
+    .left-section h2 {
+        font-size: 50px;
+        font-weight: 600;
+        color: antiquewhite;
+        letter-spacing: 1px;
+        margin: 10px 10px;
+    }
+
+    .left-section p {
+        font-size: 20px;
+        font-weight: 600;
+        color: rgb(234, 224, 219);
+        letter-spacing: 1px;
+
+    }
+
+    img {
+        width: 400px;
+    }
+
+    .part2 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .part2 .card {
+        width: 260px;
+    }
+
+
+}
+
+body {
+    background: #020024;
+background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(50, 9, 121, 1) 35%, rgba(128, 0, 255, 1) 100%);
+}
+
+main {
+    width: 80%;
+    height: 80vh;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(38, 1, 53, 0.1);
+    overflow: auto;
+
+}
+
+.head h1 {
+    color: antiquewhite;
+    text-shadow: 0px 0px 10px blueviolet;
+}
+
+h1:hover {
+    color: blueviolet;
+    transition: 1s ease-in;
+}
+
+.btns button {
+    padding: 5px;
+    margin: 1px;
+    background: none;
+    border: none;
+    border-radius: 2px;
+    outline: 2px solid blueviolet;
+    color: antiquewhite;
+
+
+}
+
+button:hover {
+    color: antiquewhite;
+    background-color: blueviolet;
+    transition: 0.5s ease-out;
+
+}
+
+.left-section p {
+    text-shadow: 0px 0px 10px blueviolet;
+}
