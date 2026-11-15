@@ -168,7 +168,9 @@ h2{
 }
 
 body {
-    background-image: url(/assets/image/bg2.jpg);
+   background: #020024;
+background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(50, 9, 121, 1) 35%, rgba(128, 0, 255, 1) 100%);
+
 }
 
 main {
