@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,23 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mycart</title>
+
     <link rel="stylesheet" href="../style/cart.css">
 </head>
 
 <body>
     <main>
         <section>
+
             <div class="head">
                 <nav>
+
                     <!-- logo -->
                     <h1><i>BookLovers</i></h1>
-                    <!--list  -->
+
+                    <!-- list -->
                     <ul class="myList">
                         <li><a href="../../index.html">Home</a></li>
-                        <li><a href="#products">products</a></li>
-                        <li><a href="#contact us">contact us</a></li>
-                        <li><a href="./assets/page/cart.html">cart</a></li>
-
+                        <li><a href="../../index.html#products">products</a></li>
+                        <li><a href="../../index.html#contact">contact us</a></li>
+                        <li><a href="./cart.html">cart</a></li>
                     </ul>
 
                     <!-- btns -->
@@ -29,9 +33,12 @@
                         <button class="log">log in</button>
                         <button class="sign">sign in</button>
                     </div>
+
                 </nav>
             </div>
+
             <div class="content">
+
                 <div class="part2" id="cart"></div>
 
             </div>
@@ -40,56 +47,74 @@
 
         </section>
     </main>
+
     <script>
-      
-document.addEventListener("DOMContentLoaded", () => {
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        document.addEventListener("DOMContentLoaded", () => {
 
-    const cartdiv = document.getElementById("cart");
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    if (!cartdiv) {
-        console.error("Cart container not found!");
-        return;
-    }
+            const cartdiv = document.getElementById("cart");
 
-    function displayCart() {
-        cartdiv.innerHTML = "";
+            if (!cartdiv) {
+                console.error("Cart container not found!");
+                return;
+            }
 
-        cart.forEach((item, index) => {
-            cartdiv.innerHTML += `
-                <div class="card">
-                    <img src="${item.image}" class="book-img">
-                    <h3>${item.title}</h3>
-                    <p>${item.desc}</p>
-                    <button class="delete-btn" data-index="${index}">
-                        Remove
-                    </button>
-                </div>
-            `;
+            function displayCart() {
+
+                cartdiv.innerHTML = "";
+
+                if (cart.length === 0) {
+                    cartdiv.innerHTML = "<h2>Your cart is empty!</h2>";
+                    return;
+                }
+
+                cart.forEach((item, index) => {
+
+                    cartdiv.innerHTML += `
+                        <div class="card">
+
+                            <img src="${item.image}" class="book-img" alt="Book">
+
+                            <h3>${item.title}</h3>
+
+                            <p>${item.desc}</p>
+
+                            <button class="delete-btn" data-index="${index}">
+                                Remove
+                            </button>
+
+                        </div>
+                    `;
+
+                });
+
+            }
+
+            // display saved books
+            displayCart();
+
+            // remove book
+            cartdiv.addEventListener("click", function(e) {
+
+                const btn = e.target.closest(".delete-btn");
+
+                if (!btn) return;
+
+                const index = Number(btn.dataset.index);
+
+                cart.splice(index, 1);
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                displayCart();
+
+            });
+
         });
-    }
-
-    displayCart();
-
-    cartdiv.addEventListener("click", function(e) {
-        const btn = e.target.closest(".delete-btn");
-
-        if (!btn) return;
-
-        const index = Number(btn.dataset.index);
-
-        cart.splice(index, 1);
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        displayCart();
-    });
-
-});
-
 
     </script>
-</body>
 
+</body>
 </html>
