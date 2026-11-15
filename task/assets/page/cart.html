@@ -17,7 +17,7 @@
                     <h1><i>BookLovers</i></h1>
                     <!--list  -->
                     <ul class="myList">
-                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="../index.html">Home</a></li>
                         <li><a href="#products">products</a></li>
                         <li><a href="#contact us">contact us</a></li>
                         <li><a href="./assets/page/cart.html">cart</a></li>
@@ -41,31 +41,53 @@
         </section>
     </main>
     <script>
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartdiv = document.getElementById("cart");
-        cartdiv.innerHTML="";
-        cart.forEach((item,index) => {
-            cartdiv.innerHTML += `
-            <div class="card">
-            <img src="${item.image}" class="book-img">
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-            <button class="delete-btn" data-index="${index}">Remove</button>
-            </div>
-            `;
-        });
-        document.addEventListener("click", function (e) {
-    const btn = e.target.closest(".delete-btn");
-    if (!btn) return;
+      
+document.addEventListener("DOMContentLoaded", () => {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const index = btn.dataset.index;
 
-    cart.splice(index, 1); // remove item
-    localStorage.setItem("cart", JSON.stringify(cart));
+    const cartdiv = document.getElementById("cart");
 
-    location.reload(); // simple refresh (easy + safe)
+    if (!cartdiv) {
+        console.error("Cart container not found!");
+        return;
+    }
+
+    function displayCart() {
+        cartdiv.innerHTML = "";
+
+        cart.forEach((item, index) => {
+            cartdiv.innerHTML += `
+                <div class="card">
+                    <img src="${item.image}" class="book-img">
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                    <button class="delete-btn" data-index="${index}">
+                        Remove
+                    </button>
+                </div>
+            `;
+        });
+    }
+
+    displayCart();
+
+    cartdiv.addEventListener("click", function(e) {
+        const btn = e.target.closest(".delete-btn");
+
+        if (!btn) return;
+
+        const index = Number(btn.dataset.index);
+
+        cart.splice(index, 1);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        displayCart();
+    });
+
 });
+
 
     </script>
 </body>
